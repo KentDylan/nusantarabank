@@ -22,7 +22,7 @@ class EMoneyPage extends StatefulWidget {
 
 class _EMoneyPageState extends State<EMoneyPage> {
   int _currentIndex = 0;
-  double emoneyBalance = 10000; // Saldo awal e-money
+  double emoneyBalance = 10000.0; // Saldo awal e-money
   TextEditingController topupController = TextEditingController();
 
   void topupEMoney(double amount) {
@@ -93,7 +93,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Saldo E-Money Anda: \Rp.${mat.decimalPattern().format(emoneyBalance)}',
+              'Saldo E-Money Anda: \Rp${emoneyBalance.toStringAsFixed(2)}',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w500,
