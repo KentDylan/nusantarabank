@@ -14,6 +14,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
       title: 'NUSANTARA',
-    );
+    ); 
   }
 }

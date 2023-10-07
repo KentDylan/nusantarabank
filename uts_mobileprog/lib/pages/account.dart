@@ -16,10 +16,17 @@ class _AccountNavState extends State<AccountNav> {
   int _currentIndex = 0; // Indeks terpilih pada navbar
   String _selectedPass =
       'VIP Pass'; // Variabel untuk menyimpan pilihan pengguna
-  String _cardVip = 'VIP Pass'; // Variabel untuk konten kartu
+  String _cardVip = 'VIP Pass'; // Variabel untuk konten kartu    
 
   // Teks yang akan disalin
   final String _nomorKartu = '0878-8555-5995';
+
+  // List of background colors for each card
+  List<Color> cardColors = [
+    Color.fromARGB(255, 115, 88, 21),
+    const Color.fromARGB(255, 18, 125, 114),
+    const Color.fromARGB(221, 0, 0, 0),
+  ];
 
   // Fungsi untuk menyalin teks ke clipboard
   void _copyToClipboard() {
@@ -110,7 +117,7 @@ class _AccountNavState extends State<AccountNav> {
                 child: PageView.builder(
                   scrollDirection: Axis.horizontal,
                   controller: _controller,
-                  itemCount: 3, // Jumlah total kartu (VIP, Royal Blue, Silver)
+                  itemCount: 3, // Total number of cards (VIP, Royal Blue, Silver)
                   onPageChanged: (index) {
                     setState(() {
                       if (index == 0) {
@@ -129,7 +136,7 @@ class _AccountNavState extends State<AccountNav> {
                       expiryMonth: 01,
                       expiryYear: 22,
                       gradientColors: [
-                        Color.fromARGB(255, 115, 88, 21),
+                        cardColors[index], // Set background color based on index
                         Colors.white,
                       ],
                     );
@@ -327,5 +334,5 @@ class _AccountNavState extends State<AccountNav> {
         ),
       ),
     );
-  }
+  } 
 }
