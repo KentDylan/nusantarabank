@@ -73,237 +73,236 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
       body: Stack(
         children: [
           Positioned(
-            top: 238, // Atur letak vertikal gambar
-            left: 0, // Atur letak horizontal gambar
-            height: 500, // Atur tinggi gambar
-            width: MediaQuery.of(context)
-                .size
-                .width, // Sesuaikan lebar dengan lebar layar
+            top: 238,
+            left: 0,
+            height: 500,
+            width: MediaQuery.of(context).size.width,
             child: Image.asset(
               'lib/icons/pura.png',
-              fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
+              fit: BoxFit.cover,
             ),
           ),
-
-          //mutasi Rekening
-          Column(
-            children: [
-              Container(
-                color:
-                    Color.fromARGB(255, 199, 178, 158), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Container(
-                color:
-                    Color(0xFFF78F8F), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                // Container 1
                 Container(
-                color:
-                    Color.fromARGB(161, 255, 255, 255), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 199, 178, 158),
+                  padding: EdgeInsets.all(26),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening:                                                    535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 8),
+                      Text(
+                        'Tanggal Injury:                                      31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 8),
+                      Text(
+                        'Jenis Transaksi:                                                       Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
+                // Container 2
                 Container(
-                color:
-                    Color(0xFFF78F8F), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                  color: Color(0xFFF78F8F),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
-              Container(
-                color:
-                    Color.fromARGB(161, 255, 255, 255), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                // Container 3
+                Container(
+                  color: Color.fromARGB(161, 255, 255, 255),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
-              Container(
-                color:
-                    Color(0xFFF78F8F), // Warna background box
-                padding: EdgeInsets.all(16), // Padding untuk isi box
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'No Rekening:                                                          535220089',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                // Container 4
+                Container(
+                  color: Color(0xFFF78F8F),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Tanggal Injury:                                           31/09/2023 08:01',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10), // Spasi antara teks
-                    Text(
-                      'Jenis Transaksi:                                                            Semua',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              // Container(
-              //   color:
-              //       Color.fromARGB(161, 255, 255, 255), // Warna background box
-              //   padding: EdgeInsets.all(16), // Padding untuk isi box
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       Text(
-              //         'No Rekening:                                                          535220089',
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //       SizedBox(height: 10), // Spasi antara teks
-              //       Text(
-              //         'Tanggal Injury:                                           31/09/2023 08:01',
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //       SizedBox(height: 10), // Spasi antara teks
-              //       Text(
-              //         'Jenis Transaksi:                                                            Semua',
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-            ],
+
+                // Container 5
+                Container(
+                  color: Color.fromARGB(161, 255, 255, 255),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Container 6
+                Container(
+                  color: Color(0xFFF78F8F),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                //Container 7
+                Container(
+                  color: Color(0xFFF78F8F),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'No Rekening: 535220089',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Tanggal Injury: 31/09/2023 08:01',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Jenis Transaksi: Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
