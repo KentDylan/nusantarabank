@@ -354,7 +354,7 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '20:30                                                              Rp 1.000.000,00',
+                        '20:30                                                             Rp 1.000.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
