@@ -1,39 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobileprog/pages/E-money.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
-class EMonetPage extends StatelessWidget {
+class Etempel extends StatefulWidget {
+  const Etempel({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: EMoneyPage(),
-    );
-  }
+  State<Etempel> createState() => _EtempelState();
 }
 
-class EMoneyPage extends StatefulWidget {
-  @override
-  _EMoneyPageState createState() => _EMoneyPageState();
-}
-
-class _EMoneyPageState extends State<EMoneyPage> {
+class _EtempelState extends State<Etempel> {
   int _currentIndex = 0;
-  double emoneyBalance = 100.0; // Saldo awal e-money
-  TextEditingController topupController = TextEditingController();
-
-  void topupEMoney(double amount) {
-    setState(() {
-      emoneyBalance += amount;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepOrange[100],
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(32),
+        preferredSize: Size.fromHeight(95),
         child: Container(
           color: Colors.brown,
           child: Row(
@@ -45,10 +30,10 @@ class _EMoneyPageState extends State<EMoneyPage> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'E',
+                          text: 'SCAN',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.red,
+                            color: Colors.red, // Warna merah untuk "N"
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -61,10 +46,10 @@ class _EMoneyPageState extends State<EMoneyPage> {
                           ),
                         ),
                         TextSpan(
-                          text: '-Money',
+                          text: ' KARTU',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.white,
+                            color: Colors.white, // Warna putih untuk "INFO"
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -85,79 +70,40 @@ class _EMoneyPageState extends State<EMoneyPage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Saldo E-Money Anda: \Rp${emoneyBalance.toStringAsFixed(2)}',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-                shadows: [
-                  Shadow(
-                    color: Colors.white,
-                    offset: Offset(3, 3),
-                    blurRadius: 20,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.0),
-            TextField(
-              controller: topupController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: 'Jumlah Top Up',
-                contentPadding: EdgeInsets.symmetric(
-                    horizontal: 10.0), // Mengurangi padding horizontal
-                isDense: true, // Mengurangi tinggi secara keseluruhan
-                // Mengatur lebar maksimum TextField
-                // Anda dapat menyesuaikan nilai width sesuai dengan kebutuhan Anda
-                // Contoh untuk mengurangi lebar menjadi setengah
-                // width: 150,
-              ),
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
+      body: Stack(
+        children: [
+          Image.asset(
+            'lib/icons/nfs-card.png', // Pastikan path gambar yang sesuai
+            width: 350, // Ubah ukuran sesuai kebutuhan
+            height: 350,
+          ),
+          SizedBox(height: 10),
+          ElevatedButton(
               onPressed: () {
-                // Aksi saat tombol kedua ditekan
-                double amount = double.tryParse(topupController.text) ?? 0.0;
-                if (amount > 0) {
-                  topupEMoney(amount);
-                  topupController.clear();
-                }
+                // Navigasi ke halaman Account saat tombol Login ditekan
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => EMonetPage(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400], // Ubah warna latar belakang
+                primary: Color.fromARGB(180, 206, 118, 92),
+                minimumSize: Size(20, 30),
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(30), // Membuat sudut melengkung
-                ),
-                elevation: 10, // Tambahkan bayangan
-                padding: EdgeInsets.symmetric(
-                  horizontal:
-                      10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                  vertical:
-                      18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                ),
+                    borderRadius: BorderRadius.circular(20.0)),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '                         OK                        ',
-                    style: TextStyle(
-                      fontSize: 16, // Ubah ukuran teks sesuai kebutuhan Anda
-                      color: Colors.white,
-                    ),
+              child: Container(
+                width: 100,
+                height: 20,
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 18),
                   ),
-                ],
-              ),
-            ),
-          ],
-        ),
+                ),
+              )),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

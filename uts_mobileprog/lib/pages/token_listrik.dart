@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/n_payment.dart';
-import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class TokenListrikPage extends StatefulWidget {
@@ -233,6 +232,7 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
     customerIdController.dispose();
     super.dispose();
   }
+
   void showAwesomeDialog(BuildContext context) {
     AwesomeDialog(
       context: context,
@@ -244,7 +244,8 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => NPayment(), // Ganti dengan halaman yang sesuai
+            builder: (context) =>
+                NPayment(), // Ganti dengan halaman yang sesuai
           ),
         );
       },
