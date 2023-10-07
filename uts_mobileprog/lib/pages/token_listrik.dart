@@ -129,13 +129,36 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
+                    // Check if the text fields are empty
+    if (customerIdController.text.isEmpty) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('WARNING'),
+            content: Text('Tolong isi ID Token'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    } else {
                     // Reset nilai input setelah pembayaran
                     customerIdController.clear();
                     selectedNominal = nominalList[0];
 
                     // Show a dialog when the button is pressed
                     showAwesomeDialog(context);
+                  }
                   },
+                
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
                     shape: RoundedRectangleBorder(

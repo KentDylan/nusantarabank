@@ -130,12 +130,35 @@ class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
             SizedBox(height: 46),
             ElevatedButton(
               onPressed: () {
-                // Clear the TextField values
-                phoneNumberController.clear();
-                paketInternetList.clear();
-                // Show a dialog when the button is pressed
-                showAwesomeDialog(context);
-              },
+    // Check if the text fields are empty
+    if (phoneNumberController.text.isEmpty || paketInternetList.isEmpty) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('WARNING'),
+            content: Text('Tolong isi Nomor Telepon'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      // Clear the TextField values
+      phoneNumberController.clear();
+      paketInternetList.clear();
+
+      // Show the awesome dialog
+      showAwesomeDialog(context);
+    }
+    },
               style: ElevatedButton.styleFrom(
                 primary: Colors.brown[400], // Ubah warna latar belakang
                 shape: RoundedRectangleBorder(
