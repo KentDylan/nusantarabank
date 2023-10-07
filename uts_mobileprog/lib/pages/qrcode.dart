@@ -20,7 +20,7 @@ class _QrCodePageState extends State<QrCodePage> {
       home: Scaffold(
         backgroundColor: Colors.deepOrange[100],
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(32),
+          preferredSize: Size.fromHeight(95),
           child: Container(
             color: Colors.brown,
             child: Column(

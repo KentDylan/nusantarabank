@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/login_page.dart';
 import 'package:uts_mobileprog/pages/n_info.dart';
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.deepOrange[100],
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(32),
+        preferredSize: Size.fromHeight(95),
         child: Container(
           color: Colors.brown,
           child: Column(
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Positioned(
-            top: 188,
+            top: 238,
             left: 0,
             height: 500,
             width: MediaQuery.of(context).size.width,
@@ -145,13 +145,13 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                // SizedBox(height: 25),
-                // SmoothPageIndicator(
-                //   controller: _controller,
-                //   count: 3,
-                //   effect:
-                //       ExpandingDotsEffect(activeDotColor: Colors.grey.shade700),
-                // ),
+                SizedBox(height: 25),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 3,
+                  effect:
+                      ExpandingDotsEffect(activeDotColor: Colors.grey.shade700),
+                ),
                 SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

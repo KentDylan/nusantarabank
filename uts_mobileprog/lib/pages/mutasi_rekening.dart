@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
-import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
-class NPayment extends StatefulWidget {
-  const NPayment({Key? key});
+class mutasirekeningPage extends StatefulWidget {
+  const mutasirekeningPage({Key? key});
 
   @override
-  State<NPayment> createState() => _NinfoState();
+  State<mutasirekeningPage> createState() => _mutasirekeningPageState();
 }
 
-class _NinfoState extends State<NPayment> {
+class _mutasirekeningPageState extends State<mutasirekeningPage> {
   int _currentIndex = 0;
-
-  void _navigateToHomePage() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +30,7 @@ class _NinfoState extends State<NPayment> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'N',
+                          text: 'MUTASI',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red, // Warna merah untuk "N"
@@ -55,7 +46,7 @@ class _NinfoState extends State<NPayment> {
                           ),
                         ),
                         TextSpan(
-                          text: ' - PAYMENT',
+                          text: ' REKENING',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white, // Warna putih untuk "INFO"
@@ -93,86 +84,55 @@ class _NinfoState extends State<NPayment> {
               fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
             ),
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 20), // Spasi antara tombol
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol kedua ditekan
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '                            Bayar Tagihan                         ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
+
+          //mutasi Rekening
+          Column(
+            children: [
+              Container(
+                color:
+                    Color.fromARGB(161, 255, 255, 255), // Warna background box
+                padding: EdgeInsets.all(16), // Padding untuk isi box
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'No Rekening:                                                          535220089',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
                       ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 10), // Spasi antara teks
+                    Text(
+                      'Tanggal Injury:                                           31/09/2023 08:01',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10), // Spasi antara teks
+                    Text(
+                      'Jenis Transaksi:                                                            Semua',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20), // Spasi antara tombol
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol ketiga ditekan
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PembelianPage(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '             Pembelian Pulsa dan Internet           ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+
+                //Copy
+
+                //Copy
+
+                //Copy
+
+                //Copy
+
+                //Copy
+
+                //Copy
+
+                //Copy
+              ),
+            ],
           ),
         ],
       ),

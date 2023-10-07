@@ -1,6 +1,6 @@
 # uts_mobileprog
 
-A new Flutter project. HALO KENT
+A new Flutter project.
 
 ## Getting Started
 

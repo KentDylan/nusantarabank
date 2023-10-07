@@ -36,7 +36,7 @@ class _AccountNavState extends State<AccountNav> {
       home: Scaffold(
         backgroundColor: Colors.deepOrange[100],
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(32),
+          preferredSize: Size.fromHeight(95),
           child: Container(
             color: Colors.brown,
             child: Column(
@@ -91,7 +91,7 @@ class _AccountNavState extends State<AccountNav> {
         body: Stack(
           children: [
             Positioned(
-              top: 188,
+              top: 238,
               left: 0,
               height: 500,
               width: MediaQuery.of(context).size.width,

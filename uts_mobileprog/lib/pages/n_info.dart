@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/info_saldo.dart';
+import 'package:uts_mobileprog/pages/mutasi_rekening.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class Ninfo extends StatefulWidget {
@@ -26,7 +28,7 @@ class _NinfoState extends State<Ninfo> {
     return Scaffold(
       backgroundColor: Colors.deepOrange[100],
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(32),
+        preferredSize: Size.fromHeight(95),
         child: Container(
           color: Colors.brown,
           child: Row(
@@ -81,7 +83,7 @@ class _NinfoState extends State<Ninfo> {
       body: Stack(
         children: [
           Positioned(
-            top: 188, // Atur letak vertikal gambar
+            top: 238, // Atur letak vertikal gambar
             left: 0, // Atur letak horizontal gambar
             height: 500, // Atur tinggi gambar
             width: MediaQuery.of(context)
@@ -99,6 +101,11 @@ class _NinfoState extends State<Ninfo> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol pertama ditekan
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => infosaldoPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -133,6 +140,11 @@ class _NinfoState extends State<Ninfo> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol kedua ditekan
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => mutasirekeningPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -153,40 +165,6 @@ class _NinfoState extends State<Ninfo> {
                     children: [
                       Text(
                         '                         Mutasi Rekening                        ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20), // Spasi antara tombol
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol ketiga ditekan
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '                       Info Kartu Kredit                          ',
                         style: TextStyle(
                           fontSize:
                               16, // Ubah ukuran teks sesuai kebutuhan Anda

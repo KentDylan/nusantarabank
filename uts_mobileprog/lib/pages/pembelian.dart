@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/internet.dart';
+import 'package:uts_mobileprog/pages/pulsa.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
-class NTransfer extends StatefulWidget {
-  const NTransfer({Key? key});
+class PembelianPage extends StatefulWidget {
+  const PembelianPage({Key? key});
 
   @override
-  State<NTransfer> createState() => _NinfoState();
+  State<PembelianPage> createState() => _PembelianPageState();
 }
 
-class _NinfoState extends State<NTransfer> {
+class _PembelianPageState extends State<PembelianPage> {
   int _currentIndex = 0;
 
   void _navigateToHomePage() {
@@ -38,10 +40,10 @@ class _NinfoState extends State<NTransfer> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'N',
+                          text: 'PEM',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.red, // Red color for "N"
+                            color: Colors.red, // Warna merah untuk "N"
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -54,10 +56,10 @@ class _NinfoState extends State<NTransfer> {
                           ),
                         ),
                         TextSpan(
-                          text: ' - TRANSFER',
+                          text: 'BELIAN',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.white, // White color for "TRANSFER"
+                            color: Colors.white, // Warna putih untuk "INFO"
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -81,40 +83,30 @@ class _NinfoState extends State<NTransfer> {
       body: Stack(
         children: [
           Positioned(
-            top: 238, // Adjust the vertical position of the image
-            left: 0, // Adjust the horizontal position of the image
-            height: 500, // Adjust the image height
-            width: MediaQuery.of(context).size.width, // Adjust the image width
+            top: 238, // Atur letak vertikal gambar
+            left: 0, // Atur letak horizontal gambar
+            height: 500, // Atur tinggi gambar
+            width: MediaQuery.of(context)
+                .size
+                .width, // Sesuaikan lebar dengan lebar layar
             child: Image.asset(
               'lib/icons/pura.png',
-              fit: BoxFit.cover, // Adjust as needed
+              fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
             ),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Antar Rekening',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    shadows: [
-                      Shadow(
-                        color: Colors.white,
-                        offset: Offset(1, 1),
-                        blurRadius: 10,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                //PENDAFTARAN REKENING
-
+                SizedBox(height: 10), // Spasi antara tombol
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi saat tombol pertama ditekan
+                    // Aksi saat tombol kedua ditekan
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => PulsaPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -134,7 +126,7 @@ class _NinfoState extends State<NTransfer> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        '                     Pendaftaran Rekening                   ',
+                        '                                    Pulsa                               ',
                         style: TextStyle(
                           fontSize:
                               16, // Ubah ukuran teks sesuai kebutuhan Anda
@@ -145,13 +137,15 @@ class _NinfoState extends State<NTransfer> {
                     ],
                   ),
                 ),
-
-                SizedBox(height: 10),
-                //TRANSFER
-
+                SizedBox(height: 20), // Spasi antara tombol
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi saat tombol pertama ditekan
+                    // Aksi saat tombol ketiga ditekan
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => internetPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -164,14 +158,14 @@ class _NinfoState extends State<NTransfer> {
                       horizontal:
                           10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
                       vertical:
-                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
+                          17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
                     ),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        '                                   Transfer                               ',
+                        '                                   Internet                             ',
                         style: TextStyle(
                           fontSize:
                               16, // Ubah ukuran teks sesuai kebutuhan Anda
@@ -182,95 +176,6 @@ class _NinfoState extends State<NTransfer> {
                     ],
                   ),
                 ),
-
-                SizedBox(height: 40),
-                Text(
-                  'Antar Bank',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    shadows: [
-                      Shadow(
-                        color: Colors.white,
-                        offset: Offset(1, 1),
-                        blurRadius: 10,
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 20),
-                // PENDAFTARAN REKENING
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol pertama ditekan
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '                     Pendaftaran Rekening                   ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 10),
-                //TRANSFER
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol pertama ditekan
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '                                   Transfer                               ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
