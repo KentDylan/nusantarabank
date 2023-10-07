@@ -1,6 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class TransferLocalPage extends StatelessWidget {
@@ -117,7 +119,7 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                   style: TextStyle(fontSize: 18),
                 ),
                 TextField(
-                  controller: anotherController,
+                  controller: nominalController,
                   keyboardType:
                       TextInputType.number, // Change the keyboard type as needed
                   decoration: InputDecoration(
@@ -128,11 +130,12 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
 
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => TransferLocalPageState(),
-                      ),
-                    );
+                    // Clear the TextField values
+                    phoneNumberController.clear();
+                    nominalController.clear();
+                    
+                    // Show a dialog when the button is pressed
+                    showAwesomeDialog(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
@@ -230,4 +233,22 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
     anotherController.dispose(); // Dispose the new controller
     super.dispose();
   }
+  void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil!',
+      desc: 'Transaksi  Anda Telah Berhasil.',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NTransfer(), // Ganti dengan halaman yang sesuai
+          ),
+        );
+      },
+    ).show();
+  }
+  
 }

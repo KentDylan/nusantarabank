@@ -1,6 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_payment.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class EMonetPage extends StatelessWidget {
@@ -128,6 +130,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
                   topupEMoney(amount);
                   topupController.clear();
                 }
+
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.brown[400], // Ubah warna latar belakang
@@ -224,4 +227,5 @@ class _EMoneyPageState extends State<EMoneyPage> {
       ),
     );
   }
+  
 }

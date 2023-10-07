@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/awesome_dialog.dart'; // Import package Awesome Dialog
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
-class internetPage extends StatelessWidget {
+class InternetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -128,12 +130,11 @@ class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
             SizedBox(height: 46),
             ElevatedButton(
               onPressed: () {
-                // Aksi saat tombol ketiga ditekan
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => internetPage(),
-                  ),
-                );
+                // Clear the TextField values
+                phoneNumberController.clear();
+                paketInternetList.clear();
+                // Show a dialog when the button is pressed
+                showAwesomeDialog(context);
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.brown[400], // Ubah warna latar belakang
@@ -231,9 +232,21 @@ class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
     );
   }
 
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    super.dispose();
+  void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil!',
+      desc: 'Transaksi Internet Anda Telah Berhasil.',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PembelianPage(), // Ganti dengan halaman yang sesuai
+          ),
+        );
+      },
+    ).show();
   }
 }

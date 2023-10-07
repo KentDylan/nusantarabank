@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class RekbankPage extends StatelessWidget {
@@ -138,8 +139,27 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Tambahkan logika di sini untuk menyimpan informasi rekening bank.
-                    // Anda dapat navigasi ke halaman konfirmasi atau melakukan tindakan lainnya.
+                    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('SUCCESS'),
+          content: Text('Nomor Rekening Sudah Tersimpan'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).push(
+              MaterialPageRoute(
+              builder: (context) => NTransfer(),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
@@ -230,13 +250,4 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
     );
   }
 
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    super.dispose();
-  }
-}
-
-void main() {
-  runApp(RekbankPage());
 }
