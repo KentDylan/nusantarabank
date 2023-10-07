@@ -1,6 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class TransferBankPage extends StatelessWidget {
@@ -133,7 +135,7 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                   controller: phoneNumberController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    hintText: '081234567890',
+                    hintText: 'contoh: 081234567890',
                   ),
                 ),
                 SizedBox(height: 20),
@@ -145,17 +147,19 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                   controller: newController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: '10000',
+                    hintText: 'contoh: 10000',
                   ),
                 ),
                 SizedBox(height: 46),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => TransferBankPage(),
-                      ),
-                    );
+                    // Clear the TextField values
+                phoneNumberController.clear();
+                newController.clear();
+                bankList.clear();
+                   
+                   // Show a dialog when the button is pressed
+                   showAwesomeDialog(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
@@ -245,11 +249,22 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
       ),
     );
   }
-
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    newController.dispose();
-    super.dispose();
+  void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil!',
+      desc: 'Transaksi Internet Anda Telah Berhasil.',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NTransfer(), // Ganti dengan halaman yang sesuai
+          ),
+        );
+      },
+    ).show();
   }
+
 }

@@ -143,7 +143,7 @@ class _PembelianPageState extends State<PembelianPage> {
                     // Aksi saat tombol ketiga ditekan
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => internetPage(),
+                        builder: (context) => InternetPage(),
                       ),
                     );
                   },

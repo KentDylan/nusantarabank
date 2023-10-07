@@ -1,6 +1,9 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_payment.dart';
+import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class TokenListrikPage extends StatefulWidget {
@@ -126,13 +129,12 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    // Proses pembayaran token listrik
-
-                    // Implementasikan logika pembayaran di sini
-
                     // Reset nilai input setelah pembayaran
                     customerIdController.clear();
                     selectedNominal = nominalList[0];
+
+                    // Show a dialog when the button is pressed
+                    showAwesomeDialog(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -230,5 +232,22 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
   void dispose() {
     customerIdController.dispose();
     super.dispose();
+  }
+  void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil!',
+      desc: 'Transaksi Token Listrik Anda Telah Berhasil.',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NPayment(), // Ganti dengan halaman yang sesuai
+          ),
+        );
+      },
+    ).show();
   }
 }
