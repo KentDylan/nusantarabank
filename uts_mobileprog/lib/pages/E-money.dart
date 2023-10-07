@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
+import 'package:intl/intl.dart';
 
 class EMonetPage extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class EMoneyPage extends StatefulWidget {
 
 class _EMoneyPageState extends State<EMoneyPage> {
   int _currentIndex = 0;
-  double emoneyBalance = 100.0; // Saldo awal e-money
+  double emoneyBalance = 10000; // Saldo awal e-money
   TextEditingController topupController = TextEditingController();
 
   void topupEMoney(double amount) {
@@ -90,7 +91,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Saldo E-Money Anda: \Rp${emoneyBalance.toStringAsFixed(2)}',
+              'Saldo E-Money Anda: \Rp.${NumberFormat.decimalPattern().format(emoneyBalance)}',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w500,
