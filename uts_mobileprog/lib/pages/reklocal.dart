@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class ReklocalPage extends StatelessWidget {
@@ -110,11 +111,27 @@ class _ReklocalPageScreenState extends State<ReklocalPageScreen> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => ReklocalPageScreen(),
-                      ),
-                    );
+                    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('SUCCESS'),
+          content: Text('Nomor Rekening Sudah Tersimpan'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                 Navigator.of(context).push(
+              MaterialPageRoute(
+              builder: (context) => NTransfer(),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
@@ -205,13 +222,4 @@ class _ReklocalPageScreenState extends State<ReklocalPageScreen> {
     );
   }
 
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    super.dispose();
-  }
-}
-
-void main() {
-  runApp(ReklocalPage());
 }

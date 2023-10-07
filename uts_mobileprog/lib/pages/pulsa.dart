@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
+import 'package:awesome_dialog/awesome_dialog.dart'; // Tambahkan package Awesome Dialog
 
-class pul extends StatelessWidget {
+class Pulsa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,11 +16,11 @@ class pul extends StatelessWidget {
 
 class PulsaPage extends StatefulWidget {
   @override
-  _IsiPulsaScreenState createState() => _IsiPulsaScreenState();
+  _PulsaPageState createState() => _PulsaPageState();
 }
 
-class _IsiPulsaScreenState extends State<PulsaPage> {
-  int _currentIndex = 0; // Inisialisasi _currentIndex dengan 0
+class _PulsaPageState extends State<PulsaPage> {
+  int _currentIndex = 0;
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController nominalController = TextEditingController();
 
@@ -42,7 +44,7 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
                           text: 'PUL',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.red, // Warna merah untuk "N"
+                            color: Colors.red,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -58,7 +60,7 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
                           text: 'SA',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.white, // Warna putih untuk "INFO"
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             shadows: [
@@ -110,38 +112,30 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Aksi saat tombol ketiga ditekan
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => PulsaPage(),
-                  ),
-                );
+                // Clear the TextField values
+                phoneNumberController.clear();
+                nominalController.clear();
+
+                // Show a dialog when the button is pressed
+                showAwesomeDialog(context);
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400], // Ubah warna latar belakang
+                primary: Colors.brown[400],
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(30), // Membuat sudut melengkung
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 10, // Tambahkan bayangan
+                elevation: 10,
                 padding: EdgeInsets.symmetric(
-                  horizontal:
-                      10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                  vertical:
-                      17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
+                  horizontal: 10,
+                  vertical: 17,
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '                         Beli Paket                         ',
-                    style: TextStyle(
-                      fontSize: 16, // Ubah ukuran teks sesuai kebutuhan Anda
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              child: Text(
+                'Beli Paket',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
@@ -153,8 +147,6 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
           setState(() {
             _currentIndex = index;
             if (index == 0) {
-              // Menavigasi ke halaman beranda
-              // Ganti dengan perintah navigasi ke halaman beranda Anda
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -169,7 +161,6 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
                 ),
               );
             } else if (index == 2) {
-              // Anda sudah berada di halaman AccountNav, jadi tidak perlu navigasi lagi.
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -180,30 +171,27 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
           });
         },
         backgroundColor: Colors.brown,
-        iconSize: 50, // Mengatur ukuran ikon menjadi lebih besar
-        selectedFontSize: 0, // Hapus label teks di bawah ikon
-        unselectedFontSize: 0, // Hapus label teks di bawah ikon
+        iconSize: 50,
+        selectedFontSize: 0,
+        unselectedFontSize: 0,
         items: [
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.home, color: Colors.grey),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.qr_code, color: Colors.grey),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.account_circle, color: Colors.grey),
             ),
             label: '',
@@ -213,10 +201,23 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
     );
   }
 
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    nominalController.dispose();
-    super.dispose();
+  void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil',
+      desc: 'Transaksi Pulsa Anda Telah Berhasil.',
+      btnOkOnPress: () {
+       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PembelianPage(), // Ganti dengan halaman yang sesuai
+        ),
+      );
+      },
+    ).show();
   }
 }
+
+
