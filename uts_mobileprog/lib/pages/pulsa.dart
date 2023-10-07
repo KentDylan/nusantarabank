@@ -112,24 +112,47 @@ class _PulsaPageState extends State<PulsaPage> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Clear the TextField values
-                phoneNumberController.clear();
-                nominalController.clear();
-
-                // Show a dialog when the button is pressed
-                showAwesomeDialog(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
-                ),
+    // Check if the text fields are empty
+    if (phoneNumberController.text.isEmpty || nominalController.text.isEmpty) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('WARNING'),
+            content: Text('Tolong isi Nomor Telepon dan Nominal Pembelian'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
+            ],
+          );
+        },
+      );
+    } else {
+      // Clear the TextField values
+      phoneNumberController.clear();
+      nominalController.clear();
+
+      // Show the awesome dialog
+      showAwesomeDialog(context);
+    }
+    },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
+                    ),
+                  ),
+  
               child: Text(
                 'Beli Paket',
                 style: TextStyle(

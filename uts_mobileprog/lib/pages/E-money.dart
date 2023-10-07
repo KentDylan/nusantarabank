@@ -93,7 +93,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Saldo E-Money Anda: \Rp.${NumberFormat.decimalPattern().format(emoneyBalance)}',
+              'Saldo E-Money Anda: \Rp.${mat.decimalPattern().format(emoneyBalance)}',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w500,

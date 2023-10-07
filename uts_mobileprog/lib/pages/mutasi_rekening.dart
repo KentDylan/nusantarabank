@@ -95,21 +95,21 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening:                                                          535220089',
+                        'No Rekening:                                                        535220089',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Tanggal Injury:                                           31/09/2023 08:01',
+                        'Tanggal Injury:                                         31/09/2023 08:01',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Jenis Transaksi:                                                             Semua',
+                        'Jenis Transaksi:                                                           Semua',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -126,14 +126,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '08:30                                                                  Rp 500.000,00',
+                        '08:30                                                                Rp 500.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        CR',
+                        '09/21/ 53522                                                                       CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -164,14 +164,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '08:51                                                                  Rp 670.000,00',
+                        '08:51                                                                Rp 670.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        DB',
+                        '09/21/ 53522                                                                       DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -202,14 +202,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '10:46                                                                   Rp 70.000,00',
+                        '10:46                                                                 Rp 70.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        CR',
+                        '09/21/ 53522                                                                       CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -240,14 +240,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '12:32                                                                   Rp 90.000,00',
+                        '12:32                                                                 Rp 90.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        DB',
+                        '09/21/ 53522                                                                       DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -278,14 +278,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '14:44                                                                  Rp 252.000,00',
+                        '14:44                                                                Rp 252.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        DB',
+                        '09/21/ 53522                                                                       DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -316,14 +316,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '15:52                                                                  Rp 550.000,00',
+                        '15:52                                                                Rp 550.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                        CR',
+                        '09/21/ 53522                                                                       CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -354,14 +354,14 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '20:30                                                             Rp 1.000.000,00',
+                        '20:30                                                           Rp 1.000.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        '09/21/ 53522                                                                       DB',
+                        '09/21/ 53522                                                                      DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

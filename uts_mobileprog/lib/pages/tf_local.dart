@@ -119,7 +119,7 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                   style: TextStyle(fontSize: 18),
                 ),
                 TextField(
-                  controller: nominalController,
+                  controller: anotherController,
                   keyboardType:
                       TextInputType.number, // Change the keyboard type as needed
                   decoration: InputDecoration(
@@ -129,14 +129,36 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                 SizedBox(height: 16),
 
                 ElevatedButton(
-                  onPressed: () {
-                    // Clear the TextField values
-                    phoneNumberController.clear();
-                    nominalController.clear();
-                    
-                    // Show a dialog when the button is pressed
-                    showAwesomeDialog(context);
-                  },
+  onPressed: () {
+    // Check if the text fields are empty
+    if (phoneNumberController.text.isEmpty || anotherController.text.isEmpty) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('WARNING'),
+            content: Text('Masukkan Nomor Rekening dan Jumlah Transfer'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      // Clear the TextField values
+      phoneNumberController.clear();
+      anotherController.clear(); // Clear the new TextField value
+
+      // Show the awesome dialog
+      showAwesomeDialog(context);
+    }
+  },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
                     shape: RoundedRectangleBorder(
@@ -234,21 +256,20 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
     super.dispose();
   }
   void showAwesomeDialog(BuildContext context) {
-    AwesomeDialog(
-      context: context,
-      dialogType: DialogType.SUCCES,
-      animType: AnimType.BOTTOMSLIDE,
-      title: 'Transaksi Berhasil!',
-      desc: 'Transaksi  Anda Telah Berhasil.',
-      btnOkOnPress: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => NTransfer(), // Ganti dengan halaman yang sesuai
-          ),
-        );
-      },
-    ).show();
-  }
-  
+  AwesomeDialog(
+    context: context,
+    dialogType: DialogType.SUCCES,
+    animType: AnimType.BOTTOMSLIDE,
+    title: 'Transaksi Berhasil!',
+    desc: 'Transaksi  Anda Telah Berhasil.',
+    btnOkOnPress: () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => NTransfer(), // Ganti dengan halaman yang sesuai
+        ),
+      );
+    },
+  ).show();
+}
 }
