@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobileprog/pages/E-money.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/pembelian.dart';
@@ -98,15 +99,56 @@ class _NinfoState extends State<NPayment> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                //button 1
+                ElevatedButton(
+                  onPressed: () {
+                    // Aksi saat tombol kedua ditekan
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => EMonetPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400], // Ubah warna latar belakang
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(30), // Membuat sudut melengkung
+                    ),
+                    elevation: 10, // Tambahkan bayangan
+                    padding: EdgeInsets.symmetric(
+                      horizontal:
+                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
+                      vertical:
+                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '                          Top Up E-Money                        ',
+                        style: TextStyle(
+                          fontSize:
+                              16, // Ubah ukuran teks sesuai kebutuhan Anda
+                          color: Colors.white,
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward, color: Colors.white),
+                    ],
+                  ),
+                ),
+
+                //button 2
                 SizedBox(height: 20), // Spasi antara tombol
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol kedua ditekan
                     Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => TokenListrikPage(),
-                  ),
-                );
+                      MaterialPageRoute(
+                        builder: (context) => TokenListrikPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang

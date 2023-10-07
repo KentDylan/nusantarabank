@@ -127,8 +127,6 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                 ElevatedButton(
                   onPressed: () {
                     // Proses pembayaran token listrik
-                    String customerId = customerIdController.text;
-                    String selectedNom = selectedNominal;
 
                     // Implementasikan logika pembayaran di sini
 
@@ -137,10 +135,17 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                     selectedNominal = nominalList[0];
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 206, 118, 92),
-                    minimumSize: Size(230, 50),
+                    primary: Colors.brown[400], // Ubah warna latar belakang
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius:
+                          BorderRadius.circular(30), // Membuat sudut melengkung
+                    ),
+                    elevation: 10, // Tambahkan bayangan
+                    padding: EdgeInsets.symmetric(
+                      horizontal:
+                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
+                      vertical:
+                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
                     ),
                   ),
                   child: Text(
