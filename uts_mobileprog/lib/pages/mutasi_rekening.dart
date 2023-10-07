@@ -82,32 +82,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
               fit: BoxFit.cover,
             ),
           ),
+
+          //Mutasi Rekening
           SingleChildScrollView(
             child: Column(
               children: [
                 // Container 1
                 Container(
-                  color: Color.fromARGB(255, 199, 178, 158),
-                  padding: EdgeInsets.all(26),
+                  color: Color.fromARGB(200, 199, 178, 158),
+                  padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening:                                                    535220089',
+                        'No Rekening:                                                          535220089',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Tanggal Injury:                                      31/09/2023 08:01',
+                        'Tanggal Injury:                                           31/09/2023 08:01',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Jenis Transaksi:                                                       Semua',
+                        'Jenis Transaksi:                                                             Semua',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -118,27 +120,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 // Container 2
                 Container(
-                  color: Color(0xFFF78F8F),
+                  color: Color.fromARGB(121, 253, 239, 239),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '08:30                                                                  Rp 500.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -149,27 +158,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 // Container 3
                 Container(
-                  color: Color.fromARGB(161, 255, 255, 255),
+                  color: Color.fromARGB(73, 135, 82, 82),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '08:51                                                                  Rp 670.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -180,27 +196,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 // Container 4
                 Container(
-                  color: Color(0xFFF78F8F),
+                  color: Color.fromARGB(72, 249, 226, 226),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '10:46                                                                   Rp 70.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -211,27 +234,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 // Container 5
                 Container(
-                  color: Color.fromARGB(161, 255, 255, 255),
+                  color: Color.fromARGB(73, 206, 76, 76),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '12:32                                                                   Rp 90.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -242,27 +272,34 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 // Container 6
                 Container(
-                  color: Color(0xFFF78F8F),
+                  color: Color.fromARGB(73, 236, 228, 228),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '14:44                                                                  Rp 252.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -273,27 +310,72 @@ class _mutasirekeningPageState extends State<mutasirekeningPage> {
 
                 //Container 7
                 Container(
-                  color: Color(0xFFF78F8F),
+                  color: Color.fromARGB(72, 125, 28, 28),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'No Rekening: 535220089',
+                        '15:52                                                                  Rp 550.000,00',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Tanggal Injury: 31/09/2023 08:01',
+                        '09/21/ 53522                                                                        CR',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Text(
-                        'Jenis Transaksi: Semua',
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING CR',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                //Container 8
+                Container(
+                  color: Color.fromARGB(73, 247, 240, 240),
+                  padding: EdgeInsets.all(18),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '20:30                                                              Rp 1.000.000,00',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        '09/21/ 53522                                                                       DB',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'desc',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'TRSF E-BANKING DB',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
