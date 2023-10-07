@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
+import 'package:uts_mobileprog/pages/rekbank.dart';
+import 'package:uts_mobileprog/pages/reklocal.dart';
+import 'package:uts_mobileprog/pages/tf_bank.dart';
+import 'package:uts_mobileprog/pages/tf_local.dart';
 
 class NTransfer extends StatefulWidget {
   const NTransfer({Key? key});
@@ -115,6 +119,12 @@ class _NinfoState extends State<NTransfer> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol pertama ditekan
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ReklocalPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -152,6 +162,12 @@ class _NinfoState extends State<NTransfer> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol pertama ditekan
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TransferLocalPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -205,6 +221,12 @@ class _NinfoState extends State<NTransfer> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol pertama ditekan
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RekbankPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -241,6 +263,12 @@ class _NinfoState extends State<NTransfer> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol pertama ditekan
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TransferBankPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
