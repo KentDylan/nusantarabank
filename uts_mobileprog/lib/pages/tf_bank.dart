@@ -89,88 +89,102 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Pilih Bank:',
-              style: TextStyle(fontSize: 18),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 180,
+            left: 0,
+            height: 500,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'lib/icons/pura.png',
+              fit: BoxFit.cover,
             ),
-            DropdownButton<String>(
-              value: selectedBank,
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedBank = newValue!;
-                });
-              },
-              items: bankList.map((String bank) {
-                return DropdownMenuItem<String>(
-                  value: bank,
-                  child: Text(bank),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Masukkan Nomor rekening:',
-              style: TextStyle(fontSize: 18),
-            ),
-            TextField(
-              controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: '081234567890',
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Masukan Nominal:',
-              style: TextStyle(fontSize: 18),
-            ),
-            TextField(
-              controller: newController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                hintText: '10000',
-              ),
-            ),
-            SizedBox(height: 46),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => TransferBankPage(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Pilih Bank:',
+                  style: TextStyle(fontSize: 18),
+                ),
+                DropdownButton<String>(
+                  value: selectedBank,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedBank = newValue!;
+                    });
+                  },
+                  items: bankList.map((String bank) {
+                    return DropdownMenuItem<String>(
+                      value: bank,
+                      child: Text(bank),
+                    );
+                  }).toList(),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Masukkan Nomor rekening:',
+                  style: TextStyle(fontSize: 18),
+                ),
+                TextField(
+                  controller: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: '081234567890',
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
+                SizedBox(height: 20),
+                Text(
+                  'Masukan Nominal:',
+                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '                          TRANSFER                         ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                TextField(
+                  controller: newController,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: '10000',
+                  ),
+                ),
+                SizedBox(height: 46),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => TransferBankPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
                     ),
                   ),
-                ],
-              ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '                          TRANSFER                         ',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

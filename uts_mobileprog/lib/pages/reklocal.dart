@@ -7,20 +7,20 @@ class ReklocalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ReklocalPageState(),
+      home: ReklocalPageScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class ReklocalPageState extends StatefulWidget {
+class ReklocalPageScreen extends StatefulWidget {
   @override
-  _ReklocalPageStateState createState() => _ReklocalPageStateState();
+  _ReklocalPageScreenState createState() => _ReklocalPageScreenState();
 }
 
-class _ReklocalPageStateState extends State<ReklocalPageState> {
+class _ReklocalPageScreenState extends State<ReklocalPageScreen> {
   int _currentIndex = 0;
   TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController nominalController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,57 +79,71 @@ class _ReklocalPageStateState extends State<ReklocalPageState> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Masukkan Nomor Rekening:',
-              style: TextStyle(fontSize: 18),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 180,
+            left: 0,
+            height: 500,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'lib/icons/pura.png',
+              fit: BoxFit.cover,
             ),
-            TextField(
-              controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: 'Contoh: 081234567890',
-              ),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => ReklocalPageState(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Masukkan Nomor Rekening:',
+                  style: TextStyle(fontSize: 18),
+                ),
+                TextField(
+                  controller: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: 'Contoh: 081234567890',
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'add rekening',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => ReklocalPageScreen(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
                     ),
                   ),
-                ],
-              ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'add rekening',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -194,7 +208,10 @@ class _ReklocalPageStateState extends State<ReklocalPageState> {
   @override
   void dispose() {
     phoneNumberController.dispose();
-    nominalController.dispose();
     super.dispose();
   }
+}
+
+void main() {
+  runApp(ReklocalPage());
 }

@@ -81,73 +81,87 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Masukkan Nomor Rekening:',
-              style: TextStyle(fontSize: 18),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 180,
+            left: 0,
+            height: 500,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'lib/icons/pura.png',
+              fit: BoxFit.cover,
             ),
-            TextField(
-              controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: 'Contoh: 081234567890',
-              ),
-            ),
-            SizedBox(height: 16),
-
-            // New TextField
-            Text(
-              'Masukkan Jumlah Transfer:',
-              style: TextStyle(fontSize: 18),
-            ),
-            TextField(
-              controller: anotherController,
-              keyboardType:
-                  TextInputType.number, // Change the keyboard type as needed
-              decoration: InputDecoration(
-                hintText: 'Contoh: 100000',
-              ),
-            ),
-            SizedBox(height: 16),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => TransferLocalPageState(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Masukkan Nomor Rekening:',
+                  style: TextStyle(fontSize: 18),
+                ),
+                TextField(
+                  controller: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: 'Contoh: 081234567890',
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
+                SizedBox(height: 16),
+
+                // New TextField
+                Text(
+                  'Masukkan Jumlah Transfer:',
+                  style: TextStyle(fontSize: 18),
                 ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Transfer ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                TextField(
+                  controller: anotherController,
+                  keyboardType:
+                      TextInputType.number, // Change the keyboard type as needed
+                  decoration: InputDecoration(
+                    hintText: 'Contoh: 100000',
+                  ),
+                ),
+                SizedBox(height: 16),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => TransferLocalPageState(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
                     ),
                   ),
-                ],
-              ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Transfer ',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

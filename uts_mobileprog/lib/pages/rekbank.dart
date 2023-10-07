@@ -88,73 +88,87 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Pilih Bank:',
-              style: TextStyle(fontSize: 18),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 180,
+            left: 0,
+            height: 500,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'lib/icons/pura.png',
+              fit: BoxFit.cover,
             ),
-            DropdownButton<String>(
-              value: selectedBank,
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedBank = newValue!;
-                });
-              },
-              items: bankList.map((String bank) {
-                return DropdownMenuItem<String>(
-                  value: bank,
-                  child: Text(bank),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Masukkan Nomor rekening:',
-              style: TextStyle(fontSize: 18),
-            ),
-            TextField(
-              controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: 'Contoh: 081234567890',
-              ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Tambahkan logika di sini untuk menyimpan informasi rekening bank.
-                // Anda dapat navigasi ke halaman konfirmasi atau melakukan tindakan lainnya.
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Pilih Bank:',
+                  style: TextStyle(fontSize: 18),
                 ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
+                DropdownButton<String>(
+                  value: selectedBank,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedBank = newValue!;
+                    });
+                  },
+                  items: bankList.map((String bank) {
+                    return DropdownMenuItem<String>(
+                      value: bank,
+                      child: Text(bank),
+                    );
+                  }).toList(),
                 ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '                         ADD REKENING                       ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                SizedBox(height: 10),
+                Text(
+                  'Masukkan Nomor rekening:',
+                  style: TextStyle(fontSize: 18),
+                ),
+                TextField(
+                  controller: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: 'Contoh: 081234567890',
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Tambahkan logika di sini untuk menyimpan informasi rekening bank.
+                    // Anda dapat navigasi ke halaman konfirmasi atau melakukan tindakan lainnya.
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
                     ),
                   ),
-                ],
-              ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '                         ADD REKENING                       ',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -221,4 +235,8 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
     phoneNumberController.dispose();
     super.dispose();
   }
+}
+
+void main() {
+  runApp(RekbankPage());
 }
