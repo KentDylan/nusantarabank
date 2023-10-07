@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           Image.asset(
-                            'lib/icons/credit-card.png',
+                            'lib/icons/info.png',
                             width: 70,
                             height: 60,
                           ),
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           Image.asset(
-                            'lib/icons/payment-method.png',
+                            'lib/icons/credit-card.png',
                             width: 60,
                             height: 60,
                           ),
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           Image.asset(
-                            'lib/icons/info.png',
+                            'lib/icons/payment-method.png',
                             width: 60,
                             height: 60,
                           ),
