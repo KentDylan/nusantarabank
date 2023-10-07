@@ -178,7 +178,7 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                 ),
               );
             } else if (index == 2) {
-               Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => AccountNav(),
@@ -226,10 +226,4 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
     customerIdController.dispose();
     super.dispose();
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: TokenListrikPage(),
-  ));
 }

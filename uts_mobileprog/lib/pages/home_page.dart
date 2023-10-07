@@ -176,8 +176,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.asset(
                             'lib/icons/credit-card.png',
-                            width: 50,
-                            height: 50,
+                            width: 70,
+                            height: 60,
                           ),
                           Text(
                             'N - Info',
@@ -208,8 +208,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.asset(
                             'lib/icons/payment-method.png',
-                            width: 50,
-                            height: 50,
+                            width: 60,
+                            height: 60,
                           ),
                           Text(
                             'N - Payment',
@@ -240,8 +240,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.asset(
                             'lib/icons/info.png',
-                            width: 50,
-                            height: 50,
+                            width: 60,
+                            height: 60,
                           ),
                           Text(
                             'N - Transfer',

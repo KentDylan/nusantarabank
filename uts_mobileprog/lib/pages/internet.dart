@@ -153,13 +153,12 @@ class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '                              Beli Paket                         ',
+                    '                           Beli Paket                         ',
                     style: TextStyle(
                       fontSize: 16, // Ubah ukuran teks sesuai kebutuhan Anda
                       color: Colors.white,
                     ),
                   ),
-                  Icon(Icons.arrow_forward, color: Colors.white),
                 ],
               ),
             ),
