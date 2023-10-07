@@ -222,7 +222,7 @@ class _infosaldoPageState extends State<infosaldoPage> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              '                     OK                   ',
+                              '                    OK                    ',
                               style: TextStyle(
                                 fontSize:
                                     16, // Ubah ukuran teks sesuai kebutuhan Anda
