@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-// import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
@@ -41,7 +41,7 @@ class _QrShowPageState extends State<QrShowPage> {
       home: Scaffold(
         backgroundColor: Colors.deepOrange[100],
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(32),
+          preferredSize: Size.fromHeight(95),
           child: Container(
             color: Colors.brown,
             child: Column(
@@ -96,14 +96,14 @@ class _QrShowPageState extends State<QrShowPage> {
         body: Stack(
           children: [
             // Tambahkan widget lain di sini jika diperlukan.
-            // Center(
-            //   child: QrImageView(
-            //     data: _qrData, // Gunakan data QR code yang telah diupdate
-            //     version: QrVersions.auto,
-            //     size: 300,
-            //     backgroundColor: Colors.transparent,
-            //   ),
-            // ),
+            Center(
+              child: QrImageView(
+                data: _qrData, // Gunakan data QR code yang telah diupdate
+                version: QrVersions.auto,
+                size: 300,
+                backgroundColor: Colors.transparent,
+              ),
+            ),
             Positioned(
               top: 80, // Atur posisi dari atas (top) sesuai kebutuhan Anda
               left: 50, // Atur posisi dari kiri (left) sesuai kebutuhan Anda

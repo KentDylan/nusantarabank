@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
-import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
-class NPayment extends StatefulWidget {
-  const NPayment({Key? key});
-
+class internetPage extends StatelessWidget {
   @override
-  State<NPayment> createState() => _NinfoState();
-}
-
-class _NinfoState extends State<NPayment> {
-  int _currentIndex = 0;
-
-  void _navigateToHomePage() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: IsiPulsaScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
+}
+
+class IsiPulsaScreen extends StatefulWidget {
+  @override
+  _IsiPulsaScreenState createState() => _IsiPulsaScreenState();
+}
+
+class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
+  int _currentIndex = 0; // Inisialisasi _currentIndex dengan 0
+  TextEditingController phoneNumberController = TextEditingController();
+
+  // Daftar pilihan paket internet dan harganya
+  List<String> paketInternetList = [
+    'Paket Bagus 2.5GB (Rp 30.000)',
+    'Paket Cepat 5GB (Rp 55.000)',
+    'Paket Super 10GB (Rp 100.000)',
+    'Paket Combo 20GB (Rp 180.000)',
+  ];
+  String selectedPaketInternet =
+      'Paket Bagus 2.5GB (Rp 30.000)'; // Ubah nilai awal sesuai dengan salah satu elemen dalam daftar
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +49,7 @@ class _NinfoState extends State<NPayment> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'N',
+                          text: 'INT',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red, // Warna merah untuk "N"
@@ -55,7 +65,7 @@ class _NinfoState extends State<NPayment> {
                           ),
                         ),
                         TextSpan(
-                          text: ' - PAYMENT',
+                          text: 'ERNET',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white, // Warna putih untuk "INFO"
@@ -79,102 +89,82 @@ class _NinfoState extends State<NPayment> {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Positioned(
-            top: 238, // Atur letak vertikal gambar
-            left: 0, // Atur letak horizontal gambar
-            height: 500, // Atur tinggi gambar
-            width: MediaQuery.of(context)
-                .size
-                .width, // Sesuaikan lebar dengan lebar layar
-            child: Image.asset(
-              'lib/icons/pura.png',
-              fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(height: 76),
+            Text(
+              'Masukkan Nomor Telepon:',
+              style: TextStyle(fontSize: 18),
             ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 20), // Spasi antara tombol
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol kedua ditekan
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '                            Bayar Tagihan                         ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20), // Spasi antara tombol
-                ElevatedButton(
-                  onPressed: () {
-                    // Aksi saat tombol ketiga ditekan
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PembelianPage(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.brown[400], // Ubah warna latar belakang
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30), // Membuat sudut melengkung
-                    ),
-                    elevation: 10, // Tambahkan bayangan
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                      vertical:
-                          17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '             Pembelian Pulsa dan Internet           ',
-                        style: TextStyle(
-                          fontSize:
-                              16, // Ubah ukuran teks sesuai kebutuhan Anda
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward, color: Colors.white),
-                    ],
-                  ),
-                ),
-              ],
+            TextField(
+              controller: phoneNumberController,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: 'Contoh: 081234567890',
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 46),
+            Text(
+              'Pilih Paket Internet:',
+              style: TextStyle(fontSize: 18),
+            ),
+            DropdownButton<String>(
+              value: selectedPaketInternet,
+              onChanged: (String? newValue) {
+                setState(() {
+                  selectedPaketInternet = newValue!;
+                });
+              },
+              items: paketInternetList.map((String paket) {
+                return DropdownMenuItem<String>(
+                  value: paket,
+                  child: Text(paket),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 46),
+            ElevatedButton(
+              onPressed: () {
+                // Aksi saat tombol ketiga ditekan
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => internetPage(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.brown[400], // Ubah warna latar belakang
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(30), // Membuat sudut melengkung
+                ),
+                elevation: 10, // Tambahkan bayangan
+                padding: EdgeInsets.symmetric(
+                  horizontal:
+                      10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
+                  vertical:
+                      17, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    '                              Beli Paket                         ',
+                    style: TextStyle(
+                      fontSize: 16, // Ubah ukuran teks sesuai kebutuhan Anda
+                      color: Colors.white,
+                    ),
+                  ),
+                  Icon(Icons.arrow_forward, color: Colors.white),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -240,5 +230,11 @@ class _NinfoState extends State<NPayment> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    phoneNumberController.dispose();
+    super.dispose();
   }
 }
