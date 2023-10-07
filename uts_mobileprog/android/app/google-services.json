@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "742136489088",
+    "project_id": "mbank-login",
+    "storage_bucket": "mbank-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742136489088:android:2fe5a5b2f16503ce0eb265",
+        "android_client_info": {
+          "package_name": "com.example.uts_mobileprog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHt4gNURDLdjIq_FC9MHR2roz9lN6hgoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
