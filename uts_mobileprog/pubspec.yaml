@@ -34,8 +34,16 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   qr_flutter: ^4.1.0
   smooth_page_indicator: ^1.0.0
+  intl: ^0.17.0
+# <<<<<<< HEAD
+#   intl: ^0.17.0
+# =======
   awesome_dialog: ^3.1.0
-  firebase_core: ^2.17.0
+# <<<<<<< HEAD
+#   firebase_core: ^2.17.0
+# =======
+# >>>>>>> 1f7acea748acafba4097cdbdf43f7b2bfda14d49
+# >>>>>>> 456e48dacd3ef6cbf5b167fac9c240f51b476f54
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
