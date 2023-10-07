@@ -141,7 +141,6 @@ class _IsiPulsaScreenState extends State<PulsaPage> {
                       color: Colors.white,
                     ),
                   ),
-                  Icon(Icons.arrow_forward, color: Colors.white),
                 ],
               ),
             ),
