@@ -49,7 +49,7 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'REKE',
+                          text: 'TRAN',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red,
@@ -65,7 +65,7 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                           ),
                         ),
                         TextSpan(
-                          text: 'NING',
+                          text: 'SFER',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -112,8 +112,7 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                 );
               }).toList(),
             ),
-            SizedBox(height: 20),
-            SizedBox(height: 76),
+            SizedBox(height: 10),
             Text(
               'Masukkan Nomor rekening:',
               style: TextStyle(fontSize: 18),
@@ -161,7 +160,7 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '                              TRANSFER                         ',
+                    '                          TRANSFER                         ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,

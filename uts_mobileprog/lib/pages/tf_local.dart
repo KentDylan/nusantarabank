@@ -21,7 +21,8 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
   int _currentIndex = 0;
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController nominalController = TextEditingController();
-  TextEditingController anotherController = TextEditingController(); // New controller
+  TextEditingController anotherController =
+      TextEditingController(); // New controller
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'TRANSFER',
+                          text: 'TRAN',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red,
@@ -56,7 +57,7 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                           ),
                         ),
                         TextSpan(
-                          text: '-REKENING',
+                          text: 'SFER',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -105,7 +106,8 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
             ),
             TextField(
               controller: anotherController,
-              keyboardType: TextInputType.number, // Change the keyboard type as needed
+              keyboardType:
+                  TextInputType.number, // Change the keyboard type as needed
               decoration: InputDecoration(
                 hintText: 'Contoh: 100000',
               ),
@@ -141,7 +143,6 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
                       color: Colors.white,
                     ),
                   ),
-
                 ],
               ),
             ),

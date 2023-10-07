@@ -39,7 +39,7 @@ class _ReklocalPageStateState extends State<ReklocalPageState> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'REKE',
+                          text: 'PENDA',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red,
@@ -55,7 +55,7 @@ class _ReklocalPageStateState extends State<ReklocalPageState> {
                           ),
                         ),
                         TextSpan(
-                          text: 'NING',
+                          text: 'FTARAN',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -96,7 +96,6 @@ class _ReklocalPageStateState extends State<ReklocalPageState> {
               ),
             ),
             SizedBox(height: 16),
-
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(

@@ -48,7 +48,7 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'REKE',
+                          text: 'PENDA',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.red,
@@ -64,7 +64,7 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                           ),
                         ),
                         TextSpan(
-                          text: 'NING',
+                          text: 'FTARAN',
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -111,8 +111,7 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                 );
               }).toList(),
             ),
-            SizedBox(height: 20),
-            SizedBox(height: 76),
+            SizedBox(height: 10),
             Text(
               'Masukkan Nomor rekening:',
               style: TextStyle(fontSize: 18),
@@ -145,13 +144,12 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '                         ADD REKENING                         ',
+                    '                         ADD REKENING                       ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                     ),
                   ),
-                  Icon(Icons.arrow_forward, color: Colors.white),
                 ],
               ),
             ),
