@@ -114,25 +114,29 @@ class _PulsaPageState extends State<PulsaPage> {
               onPressed: () {
     // Check if the text fields are empty
     if (phoneNumberController.text.isEmpty || nominalController.text.isEmpty) {
-      // Show an error message or perform any desired action
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Tolong isi Nomor Telepon dan Nominal Pembelian'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+  // Show a custom AlertDialog with a brown background
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Tolong isi Nomor Telepon dan Nominal Pembelian',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       );
-    } else {
+    },
+  );
+} else {
       // Clear the TextField values
       phoneNumberController.clear();
       nominalController.clear();

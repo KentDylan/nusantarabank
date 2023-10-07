@@ -137,20 +137,24 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Masukkan Nomor Rekening dan Jumlah Transfer'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Nomor rekening dan Nominal Transfer',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       );
-    } else {
+    },
+  );
+} else {
       // Clear the TextField values
       phoneNumberController.clear();
       anotherController.clear(); // Clear the new TextField value

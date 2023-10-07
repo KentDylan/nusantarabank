@@ -160,20 +160,24 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Masukan Nomor Rekening dan Jumlah Transfer'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Nomor rekening dan Nominal Transfer',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       );
-    } 
+    },
+  );
+}
     
     else {
       // Clear the TextField values

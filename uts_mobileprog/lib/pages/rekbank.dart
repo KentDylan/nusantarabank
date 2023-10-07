@@ -146,31 +146,39 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Tolong isi Nomor Rekening'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      ); 
-    }
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Nomor rekening',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
 else {
                       // Proceed with the action if the phoneNumberController is not empty
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('SUCCESS'),
-                            content: Text('Nomor Rekening Sudah Tersimpan'),
-                            actions: <Widget>[
-                              TextButton(
-                                child: Text('OK'),
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('SUCCESS', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Nomor rekening Sudah Tersimpan',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), 
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(

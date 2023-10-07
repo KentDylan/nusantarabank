@@ -137,20 +137,24 @@ class _IsiPulsaScreenState extends State<IsiPulsaScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Tolong isi Nomor Telepon'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Tolong isi Nomor Telepon ',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       );
-    } else {
+    },
+  );
+} else {
       // Clear the TextField values
       phoneNumberController.clear();
       paketInternetList.clear();

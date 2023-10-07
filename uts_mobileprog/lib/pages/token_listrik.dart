@@ -136,20 +136,24 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('WARNING'),
-            content: Text('Tolong isi ID Token'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan ID Token',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       );
-    } else {
+    },
+  );
+} else {
                     // Reset nilai input setelah pembayaran
                     customerIdController.clear();
                     selectedNominal = nominalList[0];
