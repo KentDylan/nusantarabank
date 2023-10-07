@@ -3,6 +3,7 @@ import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
+import 'package:uts_mobileprog/pages/token_listrik.dart';
 
 class NPayment extends StatefulWidget {
   const NPayment({Key? key});
@@ -101,6 +102,11 @@ class _NinfoState extends State<NPayment> {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi saat tombol kedua ditekan
+                    Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => TokenListrikPage(),
+                  ),
+                );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobileprog/pages/account.dart';
+import 'package:uts_mobileprog/pages/home_page.dart';
+import 'package:uts_mobileprog/pages/qrcode.dart';
 
 class TokenListrikPage extends StatefulWidget {
   const TokenListrikPage({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
   TextEditingController customerIdController = TextEditingController();
   String selectedNominal = '100000'; // Ubah dengan nilai awal yang sesuai
   List<String> nominalList = ['100000', '200000', '500000', '1000000'];
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -149,6 +153,68 @@ class _TokenListrikPageState extends State<TokenListrikPage> {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+            if (index == 0) {
+              // Menavigasi ke halaman beranda
+              // Ganti dengan perintah navigasi ke halaman beranda Anda
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+              );
+            } else if (index == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => QrCodePage(),
+                ),
+              );
+            } else if (index == 2) {
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AccountNav(),
+                ),
+              );
+            }
+          });
+        },
+        backgroundColor: Colors.brown,
+        iconSize: 50, // Mengatur ukuran ikon menjadi lebih besar
+        selectedFontSize: 0, // Hapus label teks di bawah ikon
+        unselectedFontSize: 0, // Hapus label teks di bawah ikon
+        items: [
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(
+                  top: 9), // Atur ketinggian letak ikon ke bawah
+              child: Icon(Icons.home, color: Colors.grey),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(
+                  top: 9), // Atur ketinggian letak ikon ke bawah
+              child: Icon(Icons.qr_code, color: Colors.grey),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(
+                  top: 9), // Atur ketinggian letak ikon ke bawah
+              child: Icon(Icons.account_circle, color: Colors.grey),
+            ),
+            label: '',
           ),
         ],
       ),
