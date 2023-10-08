@@ -19,7 +19,7 @@ class _AccountNavState extends State<AccountNav> {
   String _cardVip = 'VIP Pass'; // Variabel untuk konten kartu    
 
   // Teks yang akan disalin
-  final String _nomorKartu = '0878-8555-5995';
+  final String _nomorKartu = '0878-8555-5995-8102';
 
   // List of background colors for each card
   List<Color> cardColors = [
@@ -266,7 +266,7 @@ class _AccountNavState extends State<AccountNav> {
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(width: 180.0),
+                      SizedBox(width: 140.0),
                       Icon(Icons.copy),
                     ],
                   ),

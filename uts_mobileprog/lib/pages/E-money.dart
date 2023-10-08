@@ -54,7 +54,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK', style: TextStyle(color: Colors.white)),
+              child: Text('       OK       ', style: TextStyle(color: Colors.white)),
               onPressed: () {
                 if (password == '123456') {
                   double amount = double.tryParse(topupController.text) ?? 0.0;

@@ -332,7 +332,7 @@ void falseAwesomeDialog(BuildContext context) {
       context: context,
       dialogType: DialogType.error,
       animType: AnimType.BOTTOMSLIDE,
-      title: 'Transaksi Gagal',
+      title: 'PIN Gagal',
     desc: 'Anda Salah Memasukan PIN',
       btnOkOnPress: () {
        Navigator.pushReplacement(

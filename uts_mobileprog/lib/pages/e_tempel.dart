@@ -103,7 +103,7 @@ class _EtempelState extends State<Etempel> {
                     height: 50,
                     child: Center(
                       child: Text(
-                        'OK',
+                        '     OK     ',
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
