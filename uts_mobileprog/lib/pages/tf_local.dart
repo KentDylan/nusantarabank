@@ -159,8 +159,48 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
       phoneNumberController.clear();
       anotherController.clear(); // Clear the new TextField value
 
-      // Show the awesome dialog
-      showAwesomeDialog(context);
+      showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    String password = ''; // Initialize an empty password variable
+
+    return AlertDialog(
+      backgroundColor: Colors.brown, // Set the background color to brown
+      title: Text('Enter PIN', style: TextStyle(color: Colors.white)), // Set text color to white
+      content: TextField(
+        obscureText: true, // Mask the input text for password
+        style: TextStyle(color: Colors.white), // Set text color to white
+        decoration: InputDecoration(
+          hintText: 'Password',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)), // Set hint text color to white with opacity
+        ),
+        onChanged: (value) {
+          // Update the password variable when the text field value changes
+          password = value;
+        },
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+          onPressed: () {
+            // Validate the password here, and perform actions accordingly
+            if (password == '123456') {
+              // Password is correct, perform your desired action
+              // Show the awesome dialog
+              showAwesomeDialog(context);
+              // Add your code here for a successful password entry
+            } else {
+              // Password is incorrect, you can display an error message or take appropriate action
+              // Show the awesome dialog
+              falseAwesomeDialog(context);
+              // Add your code here for an incorrect password
+            }
+          },
+        ),
+      ],
+    );
+  },
+);
     }
   },
                   style: ElevatedButton.styleFrom(
@@ -252,13 +292,7 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
     );
   }
 
-  @override
-  void dispose() {
-    phoneNumberController.dispose();
-    nominalController.dispose();
-    anotherController.dispose(); // Dispose the new controller
-    super.dispose();
-  }
+  
   void showAwesomeDialog(BuildContext context) {
   AwesomeDialog(
     context: context,
@@ -276,4 +310,22 @@ class _TransferLocalPageStateState extends State<TransferLocalPageState> {
     },
   ).show();
 }
+
+void falseAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.error,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Gagal',
+    desc: 'Anda Salah Memasukan PIN',
+      btnOkOnPress: () {
+       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>TransferLocalPage(), // Ganti dengan halaman yang sesuai
+        ),
+      );
+      },
+    ).show();
+  }
 }

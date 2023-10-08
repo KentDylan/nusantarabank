@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
@@ -100,12 +101,52 @@ class _NinfoState extends State<Ninfo> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi saat tombol pertama ditekan
+                    showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    String password = ''; // Initialize an empty password variable
+
+    return AlertDialog(
+      backgroundColor: Colors.brown, // Set the background color to brown
+      title: Text('Enter PIN', style: TextStyle(color: Colors.white)), // Set text color to white
+      content: TextField(
+        obscureText: true, // Mask the input text for password
+        style: TextStyle(color: Colors.white), // Set text color to white
+        decoration: InputDecoration(
+          hintText: 'Password',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)), // Set hint text color to white with opacity
+        ),
+        onChanged: (value) {
+          // Update the password variable when the text field value changes
+          password = value;
+        },
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+          onPressed: () {
+            // Validate the password here, and perform actions accordingly
+            if (password == '123456') {
+              // Password is correct, perform your desired action
+              // Aksi saat tombol pertama ditekan
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => infosaldoPage(),
                       ),
                     );
+              // Add your code here for a successful password entry
+            } else {
+              // Password is incorrect, you can display an error message or take appropriate action
+              // Show the awesome dialog
+              falseAwesomeDialog(context);
+              // Add your code here for an incorrect password
+            }
+          },
+        ),
+      ],
+    );
+  },
+);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -139,12 +180,52 @@ class _NinfoState extends State<Ninfo> {
                 SizedBox(height: 20), // Spasi antara tombol
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi saat tombol kedua ditekan
+                   showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    String password = ''; // Initialize an empty password variable
+
+    return AlertDialog(
+      backgroundColor: Colors.brown, // Set the background color to brown
+      title: Text('Enter PIN', style: TextStyle(color: Colors.white)), // Set text color to white
+      content: TextField(
+        obscureText: true, // Mask the input text for password
+        style: TextStyle(color: Colors.white), // Set text color to white
+        decoration: InputDecoration(
+          hintText: 'Password',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)), // Set hint text color to white with opacity
+        ),
+        onChanged: (value) {
+          // Update the password variable when the text field value changes
+          password = value;
+        },
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+          onPressed: () {
+            // Validate the password here, and perform actions accordingly
+            if (password == '123456') {
+              // Password is correct, perform your desired action
+              // Aksi saat tombol pertama ditekan
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => mutasirekeningPage(),
                       ),
                     );
+              // Add your code here for a successful password entry
+            } else {
+              // Password is incorrect, you can display an error message or take appropriate action
+              // Show the awesome dialog
+              falseAwesomeDialog(context);
+              // Add your code here for an incorrect password
+            }
+          },
+        ),
+      ],
+    );
+  },
+);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400], // Ubah warna latar belakang
@@ -245,4 +326,23 @@ class _NinfoState extends State<Ninfo> {
       ),
     );
   }
+
+void falseAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.error,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Gagal',
+    desc: 'Anda Salah Memasukan PIN',
+      btnOkOnPress: () {
+       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>Ninfo(), // Ganti dengan halaman yang sesuai
+        ),
+      );
+      },
+    ).show();
+  }
 }
+

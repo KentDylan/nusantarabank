@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/n_transfer.dart';
@@ -22,14 +23,9 @@ class RekbankPageScreen extends StatefulWidget {
 class _RekbankPageScreenState extends State<RekbankPageScreen> {
   int _currentIndex = 0;
   TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
-  List<String> bankList = [
-    'BCA',
-    'MANDIRI',
-    'BRI',
-    'BNI',
-    'BANK LAIN',
-  ];
+  List<String> bankList = ['BCA', 'MANDIRI', 'BRI', 'BNI', 'BANK LAIN'];
   String selectedBank = 'BCA';
 
   @override
@@ -126,7 +122,7 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Masukkan Nomor rekening:',
+                  'Masukkan Nomor Rekening:',
                   style: TextStyle(fontSize: 18),
                 ),
                 TextField(
@@ -139,60 +135,113 @@ class _RekbankPageScreenState extends State<RekbankPageScreen> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Check if the phoneNumberController is empty
-                    if (phoneNumberController.text.isEmpty ) {
-      // Show an error message or perform any desired action
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-        backgroundColor: Colors.brown, // Set the background color to brown
-        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
-        content: Text(
-          'Masukan Nomor rekening',
-          style: TextStyle(color: Colors.white), // Set text color to white
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-else {
-                      // Proceed with the action if the phoneNumberController is not empty
+                    if (phoneNumberController.text.isEmpty) {
+                      // Show an error message
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-        backgroundColor: Colors.brown, // Set the background color to brown
-        title: Text('SUCCESS', style: TextStyle(color: Colors.white)), // Set text color to white
-        content: Text(
-          'Nomor rekening Sudah Tersimpan',
-          style: TextStyle(color: Colors.white), // Set text color to white
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: Text('OK', style: TextStyle(color: Colors.white)), 
+                            backgroundColor: Colors.brown,
+                            title: Text(
+                              'WARNING',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            content: Text(
+                              'Masukkan Nomor Rekening',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                child: Text('OK',
+                                    style: TextStyle(color: Colors.white)),
                                 onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => NTransfer(),
-                                    ),
-                                  );
+                                  Navigator.of(context).pop();
                                 },
                               ),
                             ],
                           );
                         },
                       );
-                      // Clear the phoneNumberController value
-                      phoneNumberController.clear();
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            backgroundColor: Colors.brown,
+                            title: Text(
+                              'Enter PIN',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            content: TextField(
+                              obscureText: true,
+                              controller: passwordController,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintText: 'Password',
+                                hintStyle: TextStyle(
+                                    color: Colors.white.withOpacity(0.5)),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                child: Text('Cancel',
+                                    style: TextStyle(color: Colors.white)),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              TextButton(
+                                child: Text('OK',
+                                    style: TextStyle(color: Colors.white)),
+                                onPressed: () {
+                                  if (passwordController.text == '123456' &&
+                                      phoneNumberController.text.isNotEmpty) {
+                                    Navigator.of(context).pop();
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          backgroundColor: Colors.brown,
+                                          title: Text(
+                                            'SUCCESS',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          content: Text(
+                                            'Nomor Rekening Sudah Tersimpan',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: Text('OK',
+                                                  style: TextStyle(
+                                                      color: Colors.white)),
+                                              onPressed: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NTransfer(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    phoneNumberController.clear();
+                                    passwordController.clear();
+                                  } else {
+                                    Navigator.of(context).pop();
+                                    falseAwesomeDialog(context);
+                                  }
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -282,5 +331,23 @@ else {
         ],
       ),
     );
+  }
+
+  void falseAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.error,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Gagal',
+      desc: 'Anda Salah Memasukkan PIN atau Nomor Rekening Kosong',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => RekbankPage(),
+          ),
+        );
+      },
+    ).show();
   }
 }

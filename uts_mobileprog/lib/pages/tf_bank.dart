@@ -4,6 +4,7 @@ import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
+import 'package:uts_mobileprog/pages/tf_local.dart';
 
 class TransferBankPage extends StatelessWidget {
   @override
@@ -185,8 +186,48 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
       newController.clear();
       bankList.clear();
 
-      // Show the awesome dialog
-      showAwesomeDialog(context);
+     showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    String password = ''; // Initialize an empty password variable
+
+    return AlertDialog(
+      backgroundColor: Colors.brown, // Set the background color to brown
+      title: Text('Enter PIN', style: TextStyle(color: Colors.white)), // Set text color to white
+      content: TextField(
+        obscureText: true, // Mask the input text for password
+        style: TextStyle(color: Colors.white), // Set text color to white
+        decoration: InputDecoration(
+          hintText: 'Password',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)), // Set hint text color to white with opacity
+        ),
+        onChanged: (value) {
+          // Update the password variable when the text field value changes
+          password = value;
+        },
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+          onPressed: () {
+            // Validate the password here, and perform actions accordingly
+            if (password == '123456') {
+              // Password is correct, perform your desired action
+              // Show the awesome dialog
+              showAwesomeDialog(context);
+              // Add your code here for a successful password entry
+            } else {
+              // Password is incorrect, you can display an error message or take appropriate action
+              // Show the awesome dialog
+              falseAwesomeDialog(context);
+              // Add your code here for an incorrect password
+            }
+          },
+        ),
+      ],
+    );
+  },
+);;
     }
     },         
              
@@ -296,4 +337,21 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
     ).show();
   }
 
+  void falseAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.error,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Gagal',
+    desc: 'Anda Salah Memasukan PIN',
+      btnOkOnPress: () {
+       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>TransferBankPage(), // Ganti dengan halaman yang sesuai
+        ),
+      );
+      },
+    ).show();
+  }
 }

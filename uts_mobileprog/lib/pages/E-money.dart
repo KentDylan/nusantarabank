@@ -1,10 +1,7 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
-import 'package:uts_mobileprog/pages/n_payment.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
-
 
 class EMonetPage extends StatelessWidget {
   @override
@@ -143,7 +140,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'OK',
+                    '                        OK                         ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -214,7 +211,4 @@ class _EMoneyPageState extends State<EMoneyPage> {
       ),
     );
   }
-
 }
-
-
