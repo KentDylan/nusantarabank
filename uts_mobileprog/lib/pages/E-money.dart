@@ -19,7 +19,7 @@ class EMoneyPage extends StatefulWidget {
 
 class _EMoneyPageState extends State<EMoneyPage> {
   int _currentIndex = 0;
-  double emoneyBalance = 100.0; // Saldo awal e-money
+  double emoneyBalance = 10000.0; // Saldo awal e-money
   TextEditingController topupController = TextEditingController();
 
   void topupEMoney(double amount) {
@@ -111,18 +111,14 @@ class _EMoneyPageState extends State<EMoneyPage> {
               decoration: InputDecoration(
                 labelText: 'Jumlah Top Up',
                 contentPadding: EdgeInsets.symmetric(
-                    horizontal: 10.0), // Mengurangi padding horizontal
-                isDense: true, // Mengurangi tinggi secara keseluruhan
-                // Mengatur lebar maksimum TextField
-                // Anda dapat menyesuaikan nilai width sesuai dengan kebutuhan Anda
-                // Contoh untuk mengurangi lebar menjadi setengah
-                // width: 150,
+                  horizontal: 10.0,
+                ),
+                isDense: true,
               ),
             ),
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                // Aksi saat tombol kedua ditekan
                 double amount = double.tryParse(topupController.text) ?? 0.0;
                 if (amount > 0) {
                   topupEMoney(amount);
@@ -130,26 +126,23 @@ class _EMoneyPageState extends State<EMoneyPage> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400], // Ubah warna latar belakang
+                primary: Colors.brown[400],
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(30), // Membuat sudut melengkung
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 10, // Tambahkan bayangan
+                elevation: 10,
                 padding: EdgeInsets.symmetric(
-                  horizontal:
-                      10, // Sesuaikan dengan ukuran horizontal yang Anda inginkan
-                  vertical:
-                      18, // Sesuaikan dengan ukuran vertikal yang Anda inginkan
+                  horizontal: 10,
+                  vertical: 18,
                 ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '                         OK                        ',
+                    '                        OK                         ',
                     style: TextStyle(
-                      fontSize: 16, // Ubah ukuran teks sesuai kebutuhan Anda
+                      fontSize: 16,
                       color: Colors.white,
                     ),
                   ),
@@ -165,8 +158,6 @@ class _EMoneyPageState extends State<EMoneyPage> {
           setState(() {
             _currentIndex = index;
             if (index == 0) {
-              // Menavigasi ke halaman beranda
-              // Ganti dengan perintah navigasi ke halaman beranda Anda
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -181,7 +172,6 @@ class _EMoneyPageState extends State<EMoneyPage> {
                 ),
               );
             } else if (index == 2) {
-              // Anda sudah berada di halaman AccountNav, jadi tidak perlu navigasi lagi.
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -192,30 +182,27 @@ class _EMoneyPageState extends State<EMoneyPage> {
           });
         },
         backgroundColor: Colors.brown,
-        iconSize: 50, // Mengatur ukuran ikon menjadi lebih besar
-        selectedFontSize: 0, // Hapus label teks di bawah ikon
-        unselectedFontSize: 0, // Hapus label teks di bawah ikon
+        iconSize: 50,
+        selectedFontSize: 0,
+        unselectedFontSize: 0,
         items: [
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.home, color: Colors.grey),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.qr_code, color: Colors.grey),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: EdgeInsets.only(
-                  top: 9), // Atur ketinggian letak ikon ke bawah
+              padding: EdgeInsets.only(top: 9),
               child: Icon(Icons.account_circle, color: Colors.grey),
             ),
             label: '',

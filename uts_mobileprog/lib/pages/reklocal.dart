@@ -111,27 +111,61 @@ class _ReklocalPageScreenState extends State<ReklocalPageScreen> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('SUCCESS'),
-          content: Text('Nomor Rekening Sudah Tersimpan'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                 Navigator.of(context).push(
-              MaterialPageRoute(
-              builder: (context) => NTransfer(),
-                  ),
-                );
-              },
-            ),
-          ],
-        );
-      },
-    );
+                    // Check if the phoneNumberController is empty
+                    if (phoneNumberController.text.isEmpty ) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Nomor Rekening',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+else {
+                      // Proceed with the action if the phoneNumberController is not empty
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('SUCCESS', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Nomor rekening Sudah Tersimpan',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), 
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => NTransfer(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                      // Clear the phoneNumberController value
+                      phoneNumberController.clear();
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],

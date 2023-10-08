@@ -194,12 +194,39 @@ class _AccountPageState extends State<AccountPage> {
                         // Tombol Login
                         ElevatedButton(
                           onPressed: () {
+                             // Check if the phoneNumberController is empty
+                    if (emailController.text.isEmpty || passwordController.text.isEmpty ) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Account',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+else {
                             // Implementasi fungsi login di sini
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (context) => HomePage(),
                               ),
                             );
+                          }
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(180, 206, 118, 92),

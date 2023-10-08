@@ -153,14 +153,43 @@ class _TransferBankPageScreenState extends State<TransferBankPageScreen> {
                 SizedBox(height: 46),
                 ElevatedButton(
                   onPressed: () {
-                    // Clear the TextField values
-                phoneNumberController.clear();
-                newController.clear();
-                bankList.clear();
-                   
-                   // Show a dialog when the button is pressed
-                   showAwesomeDialog(context);
-                  },
+    // Check if the text fields are empty
+    if (phoneNumberController.text.isEmpty || newController.text.isEmpty) {
+      // Show an error message or perform any desired action
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Masukan Nomor rekening dan Nominal Transfer',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+    
+    else {
+      // Clear the TextField values
+      phoneNumberController.clear();
+      newController.clear();
+      bankList.clear();
+
+      // Show the awesome dialog
+      showAwesomeDialog(context);
+    }
+    },         
+             
                   style: ElevatedButton.styleFrom(
                     primary: Colors.brown[400],
                     shape: RoundedRectangleBorder(

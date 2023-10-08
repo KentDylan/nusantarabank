@@ -112,24 +112,51 @@ class _PulsaPageState extends State<PulsaPage> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Clear the TextField values
-                phoneNumberController.clear();
-                nominalController.clear();
+    // Check if the text fields are empty
+    if (phoneNumberController.text.isEmpty || nominalController.text.isEmpty) {
+  // Show a custom AlertDialog with a brown background
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.brown, // Set the background color to brown
+        title: Text('WARNING', style: TextStyle(color: Colors.white)), // Set text color to white
+        content: Text(
+          'Tolong isi Nomor Telepon dan Nominal Pembelian',
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', style: TextStyle(color: Colors.white)), // Set text color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+} else {
+      // Clear the TextField values
+      phoneNumberController.clear();
+      nominalController.clear();
 
-                // Show a dialog when the button is pressed
-                showAwesomeDialog(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.brown[400],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                elevation: 10,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 17,
-                ),
-              ),
+      // Show the awesome dialog
+      showAwesomeDialog(context);
+    }
+    },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 17,
+                    ),
+                  ),
+  
               child: Text(
                 'Beli Paket',
                 style: TextStyle(

@@ -70,40 +70,49 @@ class _EtempelState extends State<Etempel> {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'lib/icons/nfs-card.png', // Pastikan path gambar yang sesuai
-            width: 350, // Ubah ukuran sesuai kebutuhan
-            height: 350,
-          ),
-          SizedBox(height: 10),
-          ElevatedButton(
-              onPressed: () {
-                // Navigasi ke halaman Account saat tombol Login ditekan
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => EMonetPage(),
+      body: Center(
+        child: Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'lib/icons/nfc-card.png', // Pastikan path gambar yang sesuai
+                  width: 300, // Ubah ukuran sesuai kebutuhan
+                  height: 300,
+                ),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigasi ke halaman Account saat tombol Login ditekan
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EMonetPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(180, 206, 118, 92),
+                    minimumSize: Size(20, 30),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(180, 206, 118, 92),
-                minimumSize: Size(20, 30),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-              ),
-              child: Container(
-                width: 100,
-                height: 20,
-                child: Center(
-                  child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18),
+                  child: Container(
+                    width: 100,
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        'OK',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
                   ),
                 ),
-              )),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
