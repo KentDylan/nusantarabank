@@ -1,5 +1,7 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprog/pages/account.dart';
+import 'package:uts_mobileprog/pages/e_tempel.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
 
@@ -21,11 +23,55 @@ class _EMoneyPageState extends State<EMoneyPage> {
   int _currentIndex = 0;
   double emoneyBalance = 10000.0; // Saldo awal e-money
   TextEditingController topupController = TextEditingController();
+  TextEditingController pinController = TextEditingController();
 
   void topupEMoney(double amount) {
     setState(() {
       emoneyBalance += amount;
     });
+  }
+
+  void showPinDialog(BuildContext context) {
+    String password = '';
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.brown,
+          title: Text('Enter PIN', style: TextStyle(color: Colors.white)),
+          content: TextField(
+            obscureText: true,
+            style: TextStyle(color: Colors.white),
+            controller: pinController,
+            decoration: InputDecoration(
+              hintText: 'Password',
+              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+            ),
+            onChanged: (value) {
+              password = value;
+            },
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK', style: TextStyle(color: Colors.white)),
+              onPressed: () {
+                if (password == '123456') {
+                  double amount = double.tryParse(topupController.text) ?? 0.0;
+                  if (amount > 0) {
+                    topupEMoney(amount);
+                    topupController.clear();
+                    showAwesomeDialog(context);
+                  }
+                } else {
+                  falseAwesomeDialog(context);
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -119,11 +165,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                double amount = double.tryParse(topupController.text) ?? 0.0;
-                if (amount > 0) {
-                  topupEMoney(amount);
-                  topupController.clear();
-                }
+                showPinDialog(context);
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.brown[400],
@@ -140,7 +182,7 @@ class _EMoneyPageState extends State<EMoneyPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '                        OK                         ',
+                    'OK',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -210,5 +252,36 @@ class _EMoneyPageState extends State<EMoneyPage> {
         ],
       ),
     );
+  }
+
+void showAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Berhasil!',
+      desc: 'Transaksi Anda Telah Berhasil.',
+      btnOkOnPress: () {
+        Navigator.of(context).pop();
+      },
+    ).show();
+  }
+
+  void falseAwesomeDialog(BuildContext context) {
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.ERROR,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Transaksi Gagal',
+      desc: 'Anda Salah Memasukan PIN',
+      btnOkOnPress: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Etempel(),
+          ),
+        );
+      },
+    ).show();
   }
 }

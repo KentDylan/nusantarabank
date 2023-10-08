@@ -4,7 +4,6 @@ import 'package:uts_mobileprog/pages/account.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/n_transfer.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
-import 'package:uts_mobileprog/pages/tf_local.dart';
 
 class TransferBankPage extends StatelessWidget {
   @override
