@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uts_mobileprog/pages/E-money.dart';
 import 'package:uts_mobileprog/pages/account.dart';
+import 'package:uts_mobileprog/pages/e_tempel.dart';
 import 'package:uts_mobileprog/pages/home_page.dart';
 import 'package:uts_mobileprog/pages/pembelian.dart';
 import 'package:uts_mobileprog/pages/qrcode.dart';
@@ -105,7 +105,7 @@ class _NinfoState extends State<NPayment> {
                     // Aksi saat tombol kedua ditekan
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => EMonetPage(),
+                        builder: (context) => Etempel(),
                       ),
                     );
                   },
